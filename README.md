@@ -1,24 +1,22 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is an example using [select2](https://select2.github.io) and ajax to dynamic show the date of select.
 
-Things you may want to cover:
 
-* Ruby version
+* Rails version : 5.0.2
 
-* System dependencies
+* Ruby version : 2.3.0
 
-* Configuration
+* Gem : [select2-rails](https://github.com/argerim/select2-rails)
 
-* Database creation
+* How to run
 
-* Database initialization
+  1. fork
 
-* How to run the test suite
+  2. ```$ bundle install```
 
-* Services (job queues, cache servers, search engines, etc.)
+  3. ```$ rake db:migrate```
 
-* Deployment instructions
+  4. ```$ rake db:seed```
 
-* ...
+  Have fun.
