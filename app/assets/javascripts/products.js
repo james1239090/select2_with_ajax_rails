@@ -6,7 +6,7 @@ $(function() {
 		ajax: {
 			url: "/products.json",
 			dataType: 'json',
-			delay: 250,
+			delay: 50,
 			data: function(params) {
 				return {
 					by_name: params.term // search term
@@ -35,5 +35,17 @@ $(function() {
 		minimumInputLength: 1,
 		templateSelection: format,
 		templateResult: format
+	});
+
+	$('#test2').select2({
+		theme: "bootstrap",
+		placeholder: {
+			id: '-1', // the value of the option
+			text: 'Select an option'
+		},
+		escapeMarkup: function(markup) {
+			return markup;
+		}, // let our custom formatter work
+		minimumInputLength: 1
 	});
 });

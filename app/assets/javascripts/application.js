@@ -15,3 +15,33 @@
 //= require select2
 //= require turbolinks
 //= require_tree .
+
+$(function() {
+  function reformat(data) {
+    var newData = data.map(function(item, index) {
+      return {
+        id: item.dimension_id,
+        text: item.dimension.name
+      };
+    });
+    return newData;
+  }
+
+  $('#test').on('select2:select', function(e) {
+    var product_id = $(this).val();
+
+    $.ajax({
+      url: "/product_options.json",
+      dataType: "JSON",
+      data: {
+        product_id: product_id
+      },
+      success: function(data) {
+        $('#test2').select2({
+          data: reformat(data)
+        });
+      }
+    });
+
+  });
+});

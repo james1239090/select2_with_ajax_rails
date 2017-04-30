@@ -7,6 +7,27 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 Product.destroy_all
+Dimension.destroy_all
+Color.destroy_all
+ProductOption.destroy_all
+
+Color.create(name: 'Red')
+Color.create(name: 'Blue')
+Color.create(name: 'Black')
+
+Dimension.create(name: 'M')
+Dimension.create(name: 'L')
+Dimension.create(name: 'XL')
+
 create_products = for i in 1..50 do
     Product.create!([name: "Product no.#{i}"])
-end
+    ProductOption.create(product_id: i, dimension_id: 1, color_id: 1)
+    ProductOption.create(product_id: i, dimension_id: 2, color_id: 1)
+    ProductOption.create(product_id: i, dimension_id: 3, color_id: 1)
+    ProductOption.create(product_id: i, dimension_id: 1, color_id: 2)
+    ProductOption.create(product_id: i, dimension_id: 2, color_id: 2)
+    ProductOption.create(product_id: i, dimenion_id: 3, color_id: 2)
+    ProductOption.create(product_id: i, dimension_id: 1, color_id: 3)
+    ProductOption.create(product_id: i, dimension_id: 2, color_id: 3)
+    ProductOption.create(product_id: i, dimension_id: 3, color_id: 3)
+  end
