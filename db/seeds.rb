@@ -26,8 +26,9 @@ create_products = for i in 1..50 do
     ProductOption.create(product_id: i, dimension_id: 3, color_id: 1)
     ProductOption.create(product_id: i, dimension_id: 1, color_id: 2)
     ProductOption.create(product_id: i, dimension_id: 2, color_id: 2)
-    ProductOption.create(product_id: i, dimenion_id: 3, color_id: 2)
+    ProductOption.create(product_id: i, dimension_id: 3, color_id: 2)
     ProductOption.create(product_id: i, dimension_id: 1, color_id: 3)
     ProductOption.create(product_id: i, dimension_id: 2, color_id: 3)
     ProductOption.create(product_id: i, dimension_id: 3, color_id: 3)
+
   end
