@@ -32,7 +32,7 @@ $(function() {
 		escapeMarkup: function(markup) {
 			return markup;
 		}, // let our custom formatter work
-		minimumInputLength: 1,
+		minimumInputLength: 0,
 		templateSelection: format,
 		templateResult: format
 	});
