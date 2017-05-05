@@ -2,7 +2,7 @@ $(function() {
 	function format(item) {
 		return item.name;
 	}
-	$("#test").select2({
+	$("#select_product").select2({
 		ajax: {
 			url: "/products.json",
 			dataType: 'json',
@@ -37,7 +37,7 @@ $(function() {
 		templateResult: format
 	});
 
-	$('#test2').select2({
+	$('#select_color, #select_dimension').select2({
 		theme: "bootstrap",
 		placeholder: {
 			id: '-1', // the value of the option
@@ -46,6 +46,6 @@ $(function() {
 		escapeMarkup: function(markup) {
 			return markup;
 		}, // let our custom formatter work
-		minimumInputLength: 1
+		minimumInputLength: 0
 	});
 });

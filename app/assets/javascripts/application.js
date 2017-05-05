@@ -17,31 +17,53 @@
 //= require_tree .
 
 $(function() {
-  function reformat(data) {
-    var newData = data.map(function(item, index) {
-      return {
-        id: item.dimension_id,
-        text: item.dimension.name
-      };
-    });
-    return newData;
-  }
+	function reformat(data, type) {
+		var type_id = type + "_id",
+			type_name = type;
+		var newData = data.map(function(item, index) {
+			return {
+				id: item[type_id],
+				text: item[type_name].name
+			};
+		});
+		return newData;
+	}
 
-  $('#test').on('select2:select', function(e) {
-    var product_id = $(this).val();
+	$('#select_product').on('select2:select', function(e) {
+		var product_id = $(this).val();
 
-    $.ajax({
-      url: "/product_options.json",
-      dataType: "JSON",
-      data: {
-        product_id: product_id
-      },
-      success: function(data) {
-        $('#test2').select2({
-          data: reformat(data)
-        });
-      }
-    });
+		$.ajax({
+			url: "/product_options.json",
+			dataType: "JSON",
+			data: {
+				group_id: "color_id",
+				product_id: product_id
+			},
+			success: function(data) {
+				$('#select_color').select2({
+					data: reformat(data, "color")
+				});
+			}
+		});
+	});
 
-  });
+	$('#select_color').on('select2:select', function(e) {
+		var color_id = $(this).val(),
+			product_id = $('#select_product').val();
+		$.ajax({
+			url: "/product_options.json",
+			dataType: "JSON",
+			data: {
+				group_id: "dimension_id",
+				color_id: color_id,
+				product_id: product_id
+			},
+			success: function(data) {
+				console.log(data);
+				$('#select_dimension').select2({
+					data: reformat(data, "dimension")
+				});
+			}
+		});
+	});
 });
