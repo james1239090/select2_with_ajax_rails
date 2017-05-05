@@ -41,7 +41,11 @@ $(function() {
 			},
 			success: function(data) {
 				$('#select_color').select2({
-					data: reformat(data, "color")
+					data: reformat(data, "color"),
+					placeholder: {
+						id: '-1', // the value of the option
+						text: 'Select an option'
+					}
 				});
 			}
 		});
@@ -61,7 +65,11 @@ $(function() {
 			success: function(data) {
 				console.log(data);
 				$('#select_dimension').select2({
-					data: reformat(data, "dimension")
+					data: reformat(data, "dimension"),
+					placeholder: {
+						id: '-1', // the value of the option
+						text: 'Select an option'
+					}
 				});
 			}
 		});
