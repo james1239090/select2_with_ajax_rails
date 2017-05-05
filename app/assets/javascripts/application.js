@@ -36,8 +36,8 @@ $(function() {
 			url: "/product_options.json",
 			dataType: "JSON",
 			data: {
-				group_id: "color_id",
-				product_id: product_id
+				g_id: "color_id",
+				p_id: product_id
 			},
 			success: function(data) {
 				$('#select_color').select2({
@@ -58,9 +58,9 @@ $(function() {
 			url: "/product_options.json",
 			dataType: "JSON",
 			data: {
-				group_id: "dimension_id",
-				color_id: color_id,
-				product_id: product_id
+				g_id: "dimension_id",
+				c_id: color_id,
+				p_id: product_id
 			},
 			success: function(data) {
 				console.log(data);
